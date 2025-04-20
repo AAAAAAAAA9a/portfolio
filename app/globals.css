@@ -1,0 +1,176 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Dark theme (default) */
+:root, .dark-theme {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #2d3c56;
+  --primary: #2dd4bf;
+  --primary-hover: #14b8a6;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --border: rgba(45, 212, 191, 0.1);
+}
+
+/* Light theme */
+.light-theme {
+  --background: #f8fafc;
+  --surface: #e2e8f0;
+  --surface-hover: #cbd5e1;
+  --primary: #0d9488;
+  --primary-hover: #0f766e;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --border: rgba(15, 118, 110, 0.2);
+}
+
+/* Light theme overrides */
+.light-theme .card {
+  background-color: rgba(226, 232, 240, 0.7);
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .gradient-text {
+  background-image: linear-gradient(to right, #0d9488, #0f766e);
+  color: transparent;
+  font-weight: 700;
+  text-shadow: 0px 0px 1px rgba(15, 23, 42, 0.1);
+}
+
+/* Light theme backdrop blur */
+.light-theme .backdrop-blur-element {
+  backdrop-filter: blur(1rem);
+  background-color: rgba(248, 250, 252, 0.8);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: var(--text-primary);
+}
+
+/* Card Base Styles */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0px); 
+  }
+  50% { 
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #2dd4bf, #14b8a6);
+  font-weight: 700;
+  text-shadow: 0px 0px 1px rgba(15, 23, 42, 0.1);
+}
+
+/* Interactive Elements */
+a, button {
+  transition: all 0.3s;
+}
+
+/* Container */
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Section */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Background Blur Effect */
+.backdrop-blur-element {
+  backdrop-filter: blur(1rem);
+  background-color: rgba(15, 23, 42, 0.8);
+}
