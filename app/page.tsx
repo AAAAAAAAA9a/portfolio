@@ -9,6 +9,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
+import AsciiHead from "../components/AsciiHead";
 
 // TypeWriter effect component
 const TypeWriter = ({
@@ -151,6 +152,64 @@ export default function Home() {
         id="hero"
         className="min-h-screen relative flex items-center justify-center px-4"
       >
+        {/* ASCII Head Background */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="fixed ascii-head-wrapper">
+            <AsciiHead
+              size="small"
+              scrollRange={[0, 2000]}
+              className="ascii-head"
+            />
+            <style jsx>{`
+              .ascii-head-wrapper {
+                position: fixed;
+                top: 15vh;
+                right: 10vw; /* Moved further to the right */
+                width: auto;
+                height: auto;
+                transform: rotate(3deg);
+                transform-origin: center;
+                overflow: visible;
+                opacity: 0.4; /* Increased opacity for more brightness */
+                z-index: 0;
+                max-width: 30vw; /* Ensure it's not too big relative to viewport */
+              }
+
+              @media (max-width: 768px) {
+                .ascii-head-wrapper {
+                  top: 10vh;
+                  right: 5vw;
+                  transform: scale(0.7) rotate(3deg); /* Smaller scale on mobile */
+                  max-width: 40vw; /* Wider relative to viewport on small screens */
+                }
+              }
+
+              @media (min-width: 1280px) {
+                .ascii-head-wrapper {
+                  right: 15vw;
+                  transform: scale(0.9) rotate(3deg); /* Slightly larger on big screens */
+                }
+              }
+
+              /* Add subtle glow effect */
+              .ascii-head-wrapper::after {
+                content: "";
+                position: absolute;
+                inset: -30px;
+                background: radial-gradient(
+                  circle,
+                  rgba(45, 212, 191, 0.08) 0%,
+                  rgba(15, 118, 110, 0.03) 50%,
+                  transparent 100%
+                );
+                border-radius: 50%;
+                z-index: -1;
+                pointer-events: none;
+              }
+            `}</style>
+          </div>
+        </div>
+
         <div
           className={`max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -165,15 +224,17 @@ export default function Home() {
                 <span className="block text-text-primary animate-fade-up [animation-delay:200ms]">
                   Hi, Im <span className="gradient-text">Artur</span>
                 </span>
-                <TypeWriter
-                  sentences={[
-                    "$ cd ~/projects",
-                    "Building digital solutions",
-                    "function solveProblems() { code() }",
-                    "const future = await learnNewTech()",
-                  ]}
-                  className="block text-4xl md:text-6xl font-bold text-text-primary animate-fade-up [animation-delay:400ms]"
-                />
+                <div className="flex items-center gap-4">
+                  <TypeWriter
+                    sentences={[
+                      "$ cd ~/projects",
+                      "Building digital solutions",
+                      "function solveProblems() { code() }",
+                      "const future = await learnNewTech()",
+                    ]}
+                    className="block text-4xl md:text-6xl font-bold text-text-primary animate-fade-up [animation-delay:400ms]"
+                  />
+                </div>
               </h1>
             </div>
 
@@ -212,6 +273,16 @@ export default function Home() {
                 <span className="w-2 h-2 bg-primary-400 rounded-full" />
                 <span>Kielce, PL</span>
               </div>
+            </div>
+          </div>
+
+          {/* Right column content */}
+          <div className="relative flex justify-center items-center">
+            <div className="w-full max-w-md relative mx-auto">
+              <div className="relative z-10 transform transition-all duration-700 animate-fade-up [animation-delay:600ms]">
+                {/* Empty placeholder where AsciiHead was previously */}
+              </div>
+              <div className="absolute -inset-4 bg-primary-400/5 rounded-full blur-3xl z-0"></div>
             </div>
           </div>
         </div>
