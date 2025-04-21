@@ -165,11 +165,11 @@ export default function Certificates() {
   return (
     <>
       <Background />
-      <section className="container py-20">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
+      <section className="container py-20 content-wrapper">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 page-heading">
           <span className="gradient-text">Certificates</span>
         </h1>
-        <p className="text-text-secondary text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-text-secondary text-center mb-12 max-w-3xl mx-auto page-subheading">
           In this section you will find my 20+ certificates and completed
           trainings in technology and IT, which demonstrate my continuous
           professional development and commitment to learning.

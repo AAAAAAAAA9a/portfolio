@@ -178,7 +178,7 @@ export default function Background() {
   }, [dimensions]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-900/5 via-background to-primary-900/5" />
       <canvas ref={canvasRef} className="absolute inset-0" />
     </div>

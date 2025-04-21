@@ -37,11 +37,11 @@ export default function CV() {
   return (
     <>
       <Background />
-      <section className="container py-20">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
+      <section className="container py-20 content-wrapper">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 page-heading">
           <span className="gradient-text">Curriculum Vitae</span>
         </h1>
-        <p className="text-text-secondary text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-text-secondary text-center mb-12 max-w-3xl mx-auto page-subheading">
           Here you&apos;ll find my current CV, which I regularly update with the
           most important projects, skills, and professional experiences. Feel
           free to download and contact me if you&apos;re interested in

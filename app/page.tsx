@@ -7,9 +7,13 @@ import {
   ArrowRight,
   ChevronRight,
   ExternalLink,
+  Code2,
+  Server,
+  Shield,
 } from "lucide-react";
 import Link from "next/link";
 import AsciiHead from "../components/AsciiHead";
+import TechGrid from "../components/TechGrid";
 
 // TypeWriter effect component
 const TypeWriter = ({
@@ -90,47 +94,12 @@ export default function Home() {
   }, []);
 
   // Tech skills with animated progress
-  const skills = [
-    {
-      name: "Web Development",
-      level: 65,
-      description: "HTML, CSS, JavaScript, React",
-      color: "from-blue-400 to-purple-500",
-    },
-    {
-      name: "Backend Development",
-      level: 60,
-      description: "Node.js, Python, REST APIs",
-      color: "from-green-400 to-teal-500",
-    },
-    {
-      name: "AI/ML",
-      level: 55,
-      description: "TensorFlow, PyTorch, Trading Automation",
-      color: "from-orange-400 to-red-500",
-    },
-    {
-      name: "Databases",
-      level: 60,
-      description: "PostgreSQL, MongoDB",
-      color: "from-yellow-400 to-amber-500",
-    },
-    {
-      name: "DevOps",
-      level: 50,
-      description: "Docker, Git, Linux",
-      color: "from-indigo-400 to-violet-500",
-    },
-    {
-      name: "Cybersecurity",
-      level: 55,
-      description: "Web Security, System Security",
-      color: "from-pink-400 to-rose-500",
-    },
-  ];
 
   return (
     <div className="relative">
+      {/* Tech Grid Background */}
+      <TechGrid />
+
       {/* Navigation Dots */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 space-y-4 z-50">
         {["hero", "featured", "skills"].map((section) => (
@@ -157,7 +126,7 @@ export default function Home() {
           <div className="fixed ascii-head-wrapper">
             <AsciiHead
               size="small"
-              scrollRange={[0, 2000]}
+              scrollRange={[0, 2200]}
               className="ascii-head"
             />
             <style jsx>{`
@@ -249,13 +218,13 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:800ms]">
-              <a
-                href="#featured"
+              <Link
+                href="/about"
                 className="px-6 py-3 bg-primary-400 hover:bg-primary-400/90 text-white rounded-lg transition-all flex items-center gap-2 group"
               >
-                <span>View Projects</span>
+                <span>About Me</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
               <Link
                 href="/cv"
                 className="px-6 py-3 border border-primary-400/30 hover:border-primary-400/60 rounded-lg text-text-primary hover:text-primary-400 transition-all"
@@ -369,46 +338,67 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="min-h-screen py-20 px-4 relative">
+      <section id="skills" className="min-h-screen py-32 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             <span className="gradient-text">Skills & Expertise</span>
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="card p-6 group hover:border-primary-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary-400/5"
-              >
-                <div className="mb-4">
-                  <div className="mb-2">
-                    <h3 className="text-lg font-semibold text-text-primary group-hover:text-primary-400 transition-colors">
-                      {skill.name}
-                    </h3>
-                  </div>
-                  <div className="h-2 bg-surface rounded-full overflow-hidden">
-                    <div
-                      className={`h-full w-3/4 rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out`}
-                    />
-                  </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            {/* Web Development Skill */}
+            <div className="card p-5 group hover:border-primary-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary-400/5">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-primary-400/10 rounded-full flex items-center justify-center border border-primary-400/20 group-hover:border-primary-400/40 transition-all mb-4">
+                  <Code2 className="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform" />
                 </div>
-                <p className="text-text-secondary text-sm">
-                  {skill.description}
+                <h3 className="text-lg font-bold text-text-primary group-hover:text-primary-400 transition-colors mb-2">
+                  Frontend Development
+                </h3>
+                <p className="text-text-secondary text-xs">
+                  React, Next.js, TypeScript, Tailwind CSS
                 </p>
-
-                <div className="mt-4 pt-4 border-t border-border opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-text-tertiary">
-                      Experience since
-                    </div>
-                    <div className="text-text-secondary text-sm font-mono">
-                      2021
-                    </div>
-                  </div>
-                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Backend Development Skill */}
+            <div className="card p-5 group hover:border-primary-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary-400/5">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-primary-400/10 rounded-full flex items-center justify-center border border-primary-400/20 group-hover:border-primary-400/40 transition-all mb-4">
+                  <Server className="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-lg font-bold text-text-primary group-hover:text-primary-400 transition-colors mb-2">
+                  Backend Development
+                </h3>
+                <p className="text-text-secondary text-xs">
+                  Node.js, Python, REST APIs, databases
+                </p>
+              </div>
+            </div>
+
+            {/* Cybersecurity Skill */}
+            <div className="card p-5 group hover:border-primary-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary-400/5">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-primary-400/10 rounded-full flex items-center justify-center border border-primary-400/20 group-hover:border-primary-400/40 transition-all mb-4">
+                  <Shield className="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-lg font-bold text-text-primary group-hover:text-primary-400 transition-colors mb-2">
+                  Cybersecurity
+                </h3>
+                <p className="text-text-secondary text-xs">
+                  Web security, system security, pen testing
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/about#skills"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-primary-400/30 hover:border-primary-400/60 rounded-lg text-text-primary hover:text-primary-400 transition-all"
+            >
+              <span>View All Skills</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           <div className="mt-16">
@@ -462,8 +452,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Removed the "Let's Connect" section as requested */}
     </div>
   );
 }

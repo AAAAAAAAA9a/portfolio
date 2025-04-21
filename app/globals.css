@@ -3,7 +3,8 @@
 @import "tailwindcss/utilities";
 
 /* Dark theme (default) */
-:root, .dark-theme {
+:root,
+.dark-theme {
   --background: #0f172a;
   --surface: #1e293b;
   --surface-hover: #2d3c56;
@@ -32,7 +33,8 @@
 .light-theme .card {
   background-color: rgba(226, 232, 240, 0.7);
   border: 1px solid rgba(15, 118, 110, 0.2);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .light-theme .gradient-text {
@@ -96,10 +98,11 @@ body {
 
 /* Animations */
 @keyframes float {
-  0%, 100% { 
-    transform: translate(-50%, -50%) translateY(0px); 
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0px);
   }
-  50% { 
+  50% {
     transform: translate(-50%, -50%) translateY(-20px);
   }
 }
@@ -116,7 +119,8 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -143,7 +147,8 @@ body {
 }
 
 /* Interactive Elements */
-a, button {
+a,
+button {
   transition: all 0.3s;
 }
 

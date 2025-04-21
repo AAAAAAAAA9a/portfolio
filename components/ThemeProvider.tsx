@@ -13,10 +13,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     document.body.style.color = "#f8fafc";
   }, []);
 
-  // Prevent flash while mounting
-  if (!mounted) {
-    return null;
-  }
-
-  return <>{children}</>;
+  // Always render children, but add a class to control visibility
+  return <div className={mounted ? "contents" : "invisible"}>{children}</div>;
 }
