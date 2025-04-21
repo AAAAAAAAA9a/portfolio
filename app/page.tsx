@@ -227,10 +227,10 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <TypeWriter
                     sentences={[
-                      "$ cd ~/projects",
-                      "Building digital solutions",
-                      "function solveProblems() { code() }",
-                      "const future = await learnNewTech()",
+                      "Lorem ipsum dolor sit amet",
+                      "Nullam quis risus eget urna",
+                      "Vivamus sagittis lacus vel augue",
+                      "Donec sed odio dui",
                     ]}
                     className="block text-4xl md:text-6xl font-bold text-text-primary animate-fade-up [animation-delay:400ms]"
                   />
